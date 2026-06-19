@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://octwiwt.github.io/main-web-aiyouxi-com-cn/sitemap.xml
