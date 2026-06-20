@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes">
+  <title>简明指南 · 澳门新葡京 | 访问提醒与场所介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fce8d1 0%, #f6d7b0 40%, #edd3a9 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1.2rem 4rem;
+      color: #2e241e;
+      line-height: 1.6;
+    }
+
+    .page-wrap {
+      max-width: 960px;
+      width: 100%;
+    }
+
+    /* --- hero 区 --- */
+    .hero {
+      text-align: center;
+      margin-bottom: 2.8rem;
+      padding: 2.8rem 1.5rem 2rem;
+      background: rgba(255, 247, 237, 0.65);
+      backdrop-filter: blur(4px);
+      border-radius: 56px 24px 56px 24px;
+      box-shadow: 0 16px 40px -10px rgba(140, 85, 40, 0.3);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 550;
+      letter-spacing: 0.04em;
+      color: #653d1c;
+      text-shadow: 0 2px 6px rgba(255, 215, 160, 0.6);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero .subhead {
+      font-size: 1.15rem;
+      color: #4f3726;
+      background: rgba(250, 235, 215, 0.6);
+      display: inline-block;
+      padding: 0.25rem 1.2rem;
+      border-radius: 40px;
+      backdrop-filter: blur(2px);
+      margin-top: 0.2rem;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 1.6rem auto 0;
+      font-size: 1.05rem;
+      background: rgba(255, 245, 230, 0.5);
+      padding: 1rem 1.6rem;
+      border-radius: 48px;
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(215, 170, 120, 0.25);
+    }
+
+    /* --- 卡片通用 --- */
+    .card-set {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .card {
+      background: rgba(255, 250, 240, 0.88);
+      backdrop-filter: blur(4px);
+      border-radius: 32px;
+      padding: 2rem 2rem 1.8rem;
+      box-shadow: 0 8px 24px rgba(110, 65, 30, 0.12), 0 0 0 1px rgba(220, 185, 145, 0.2);
+      transition: box-shadow 0.25s;
+    }
+
+    .card:hover {
+      box-shadow: 0 14px 34px rgba(120, 75, 35, 0.16), 0 0 0 1px #dbb68b;
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      font-weight: 520;
+      color: #573e28;
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 2px solid #e7cbb0;
+      display: inline-block;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #66472b;
+      margin: 1.2rem 0 0.4rem;
+    }
+
+    .card ul, .card p {
+      color: #3e2f23;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card li {
+      position: relative;
+      padding-left: 1.8rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card li::before {
+      content: "·";
+      position: absolute;
+      left: 0.5rem;
+      font-weight: bold;
+      color: #b5835a;
+      font-size: 1.4rem;
+      line-height: 1.2;
+    }
+
+    .card .tag {
+      display: inline-block;
+      background: #e8d3be;
+      color: #3a2b1e;
+      font-size: 0.8rem;
+      padding: 0.15rem 0.8rem;
+      border-radius: 30px;
+      margin-right: 0.3rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* 优势区两列 */
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 1rem 0 0.2rem;
+    }
+
+    .advantage-item {
+      background: #f9efE3;
+      border-radius: 24px;
+      padding: 1rem 1.2rem;
+      border: 1px solid #e7d3bc;
+    }
+
+    .advantage-item strong {
+      display: block;
+      font-weight: 550;
+      color: #4f3823;
+      margin-bottom: 0.25rem;
+      font-size: 1.05rem;
+    }
+
+    /* --- FAQ 摘要 --- */
+    .faq-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin: 0.8rem 0;
+    }
+
+    .faq-q {
+      background: #f5e8d9;
+      border-radius: 50px;
+      padding: 0.7rem 1.4rem;
+      border-left: 4px solid #bd935f;
+      font-weight: 470;
+      color: #412f20;
+    }
+
+    .faq-a {
+      padding: 0.3rem 1.4rem 0.8rem 2rem;
+      color: #4c392a;
+      font-size: 0.95rem;
+    }
+
+    /* --- 底部链接 --- */
+    .footer-note {
+      margin-top: 2.8rem;
+      text-align: center;
+      background: rgba(235, 215, 190, 0.5);
+      backdrop-filter: blur(3px);
+      border-radius: 48px;
+      padding: 1.8rem 1.5rem 1.4rem;
+      border: 1px solid #dabd9e;
+    }
+
+    .footer-note p {
+      margin-bottom: 0.8rem;
+    }
+
+    .inline-link {
+      background: transparent;
+      color: #5f3f26;
+      font-weight: 520;
+      text-decoration: none;
+      padding: 0.1rem 0.6rem;
+      border-radius: 30px;
+      transition: all 0.2s;
+      border: 1px solid #cdab86;
+      display: inline-block;
+      line-height: 1.5;
+      white-space: nowrap;
+    }
+
+    .inline-link:hover {
+      background: #dbbc9b;
+      color: #2f1f14;
+      border-color: #a17b5a;
+      box-shadow: 0 2px 8px rgba(150, 90, 35, 0.15);
+    }
+
+    .footer-note small {
+      display: block;
+      margin-top: 1rem;
+      color: #5f4a37;
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      body {
+        padding: 1.4rem 0.9rem 3rem;
+      }
+
+      .hero {
+        padding: 2rem 1rem 1.6rem;
+        border-radius: 32px 16px 32px 16px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+        padding: 0.8rem 1.2rem;
+      }
+
+      .card {
+        padding: 1.5rem 1.2rem 1.3rem;
+        border-radius: 24px;
+      }
+
+      .advantage-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-q, .faq-a {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .footer-note {
+        padding: 1.4rem 1rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- hero 区：简明指南 + 访问提醒 -->
+  <section class="hero">
+    <h1>新葡京 · 简明指南</h1>
+    <span class="subhead">场所介绍 · 实用提醒</span>
+    <p>位于澳门本岛核心地带的<strong>澳门新葡京</strong>，是旅客熟悉的综合娱乐酒店建筑群。无论您是初次到访或再次造访，一份温和的指引与注意事项能让行程更加顺畅。以下内容从实际体验角度出发，提供客观资讯与提示。</p>
+  </section>
+
+  <div class="card-set">
+
+    <!-- 优势区（特点与场景） -->
+    <section class="card">
+      <h2>场所特点 · 简明一览</h2>
+      <div class="advantage-grid">
+        <div class="advantage-item">
+          <strong>📍 位置与交通</strong>
+          位于葡京路与友谊大马路交界，周边巴士站、的士站密集，步行至南湾湖约八分钟。酒店提供代客泊车及穿梭巴士（需向柜台查询时刻）。
+        </div>
+        <div class="advantage-item">
+          <strong>🏛 建筑与设计</strong>
+          标志性莲花造型与金色玻璃幕墙，内部中庭装有大型水晶吊灯。公共区域设有艺术展廊与品牌零售，适合散步浏览。
+        </div>
+        <div class="advantage-item">
+          <strong>🍽 餐饮选择</strong>
+          提供粤式点心、自助餐、西餐及日式料理。部分餐厅需提前预约，建议通过酒店内线或官方渠道确认营业时间。
+        </div>
+        <div class="advantage-item">
+          <strong>🎲 休闲设施</strong>
+          除博彩区外，另有水疗中心、健身房及游泳池（仅对住客开放）。非住客可购买日票使用部分设施，具体以现场公告为准。
+        </div>
+      </div>
+      <p style="margin-top: 1rem; font-size: 0.95rem; background: #f2e4d5; padding: 0.6rem 1.2rem; border-radius: 30px;">
+        <span class="tag">实用提醒</span> 入场须年满21岁并出示有效身份证明文件；场内禁止摄影及使用手机。
+      </p>
+    </section>
+
+    <!-- 说明区：访问提醒 + 场景补充 -->
+    <section class="card">
+      <h2>访问提醒 &amp; 场景建议</h2>
+      <p>为了让您拥有更自在的体验，我们整理了以下温和的提示，涵盖行前准备与现场动线。</p>
+      <ul>
+        <li><strong>行前确认</strong> – 出发前请通过<a href="https://site-grandlisboa.com" class="inline-link">澳门新葡京</a>的官方页面了解最新开放时间、 Dress Code 及特别安排。部分区域可能因维修或活动临时调整。</li>
+        <li><strong>动线建议</strong> – 从正门进入后，左转可直达酒店前台与储物区；右转通往娱乐楼层与餐厅。大堂设有电子导览屏，支持中英葡三语。</li>
+        <li><strong>携带物品</strong> – 建议随身携带外套（室内空调较强）、充电宝及少量现金。场内部分商铺支持电子支付，但小摊贩或出租车仍以现金为主。</li>
+        <li><strong>周边漫游</strong> – 游览结束后可步行至议事亭前地（约十二分钟）或葡京酒店前的公交枢纽。夜间灯光秀在建筑外侧每半小时播放一次（晚七时至十一时）。</li>
+      </ul>
+      <div style="margin-top: 1.2rem; padding: 0.8rem 1.2rem; background: #f3e5d6; border-radius: 28px;">
+        <span style="font-weight: 500;">📌 特别提醒：</span> 请妥善保管个人证件与财物，避免携带过量行李入场。如遇身体不适或需要帮助，可向穿制服的职员或礼宾部示意。
+      </div>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section class="card">
+      <h2>常见疑问 · 快速摘要</h2>
+      <div class="faq-mini">
+        <div class="faq-q">❓ 是否提供免费停车？</div>
+        <div class="faq-a">酒店提供收费代客泊车，部分时段消费满额可享折扣。周边公共停车场步行约3分钟。</div>
+        <div class="faq-q">❓ 非住客可以使用泳池吗？</div>
+        <div class="faq-a">游泳池仅限住客及会员使用；水疗中心对非住客开放，需提前预约并支付费用。</div>
+        <div class="faq-q">❓ 餐厅需要预约吗？</div>
+        <div class="faq-a">自助餐厅与热门中餐厅建议提前一天预约。可于官网或电话查询订位情况。</div>
+        <div class="faq-q">❓ 建筑内有无行李寄存？</div>
+        <div class="faq-a">正门礼宾部提供短期寄存服务（最长四小时），大件行李可寄存在酒店行李房（住客免费）。</div>
+      </div>
+      <p style="font-size: 0.9rem; margin-top: 0.8rem; color: #594432;">更多细节请以现场公告及 <a href="https://site-grandlisboa.com" class="inline-link" style="font-size: 0.9rem;">澳门新葡京</a> 官网公示为准。</p>
+    </section>
+  </div>
+
+  <!-- 底部链接 -->
+  <div class="footer-note">
+    <p>如果您计划前往或希望进一步了解，可以直接浏览 <a href="https://site-grandlisboa.com" class="inline-link">澳门新葡京</a> 获取最新的导览资讯与服务介绍。</p>
+    <p style="margin-top: 0.6rem;">我们鼓励每位访客提前做简单准备，以更轻松的心情感受这座建筑的设计与氛围。</p>
+    <small>© 简明指南 · 内容仅供参考，不构成任何形式的引导或承诺。</small>
+  </div>
+
+</div>
+</body>
+</html>
