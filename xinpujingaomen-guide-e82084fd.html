@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澳门新葡京 · 资料索引与信息归档</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            background-color: #f1f3f5;
+            color: #1e2024;
+            line-height: 1.7;
+            letter-spacing: 0.01em;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: #0f1217;
+            color: #ecedee;
+            padding: 4.5rem 2rem 3.2rem;
+            text-align: center;
+            border-bottom: 1px solid #2f333a;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #5a7f9c, transparent);
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.5rem;
+            color: #e4e8ed;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #9aa3b0;
+            max-width: 480px;
+            margin: 0 auto;
+            border-top: 1px solid #2b3038;
+            padding-top: 1rem;
+            display: inline-block;
+        }
+
+        /* 正文区浅色背景 */
+        .content-wrapper {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 2.8rem 1.8rem 4rem;
+            background: #ffffff;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        /* 文章标题 */
+        .post-title {
+            font-size: 1.8rem;
+            font-weight: 450;
+            line-height: 1.35;
+            margin-bottom: 0.4rem;
+            color: #15171c;
+            border-left: 4px solid #3a6b8c;
+            padding-left: 1rem;
+        }
+
+        .meta-line {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .meta-line span {
+            background: #eef0f2;
+            padding: 0.15rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #3f4652;
+        }
+
+        .text-body p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: #25282e;
+        }
+
+        .text-body p:first-of-type::first-letter {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #2b5470;
+        }
+
+        /* 引用提示块 */
+        .callout {
+            background: #f2f6fa;
+            border-left: 4px solid #3a6b8c;
+            padding: 1.2rem 1.6rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+            color: #1f2937;
+        }
+
+        .callout strong {
+            color: #1f3a4b;
+            font-weight: 500;
+        }
+
+        /* 强调色链接 */
+        a {
+            color: #206a92;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #0f4b6b;
+            border-bottom: 1px solid #206a92;
+        }
+
+        /* 特色列表 (FAQ摘要风格) */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem 1.8rem;
+            margin: 2rem 0 1.2rem;
+            padding: 0;
+        }
+
+        .info-item {
+            background: #f7f9fb;
+            border-radius: 6px;
+            padding: 0.8rem 1rem;
+            list-style: none;
+            font-size: 0.92rem;
+            color: #2d3748;
+            border: 1px solid #e6eaee;
+        }
+
+        .info-item::before {
+            content: '▹';
+            color: #3a6b8c;
+            margin-right: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* 访问句 / 收尾 */
+        .access-note {
+            margin-top: 2.5rem;
+            padding: 1rem 0;
+            border-top: 1px solid #e4e8ed;
+            font-size: 0.95rem;
+            color: #3d4552;
+        }
+
+        .access-note a {
+            font-weight: 450;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .hero {
+                padding: 3rem 1.2rem 2.2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content-wrapper {
+                padding: 1.8rem 1.2rem 3rem;
+            }
+
+            .post-title {
+                font-size: 1.5rem;
+                padding-left: 0.8rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .callout {
+                padding: 1rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .meta-line {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* 小细节 */
+        .footnote {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #7a828e;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <div class="hero">
+        <h1>澳门新葡京 · 资料整理</h1>
+        <div class="sub">信息索引 · 归档笔记 · 公开参考</div>
+    </div>
+
+    <!-- 正文区 -->
+    <div class="content-wrapper">
+        <article>
+            <h2 class="post-title">从信息碎片到结构化记录</h2>
+            <div class="meta-line">
+                <span>索引编号 #221</span>
+                <span>归档 · 2025</span>
+            </div>
+
+            <div class="text-body">
+                <p>
+                    在整理酒店、娱乐综合体与城市地标的公开资料时，会发现很多信息分散在行程单、攻略帖甚至口耳相传中。澳门新葡京作为一处经常被提及的建筑群，其背景资料、设施概况以及周边交通等要素，值得做一次相对集中的梳理。以下内容均来自可查证的公开材料，不包含任何内部运营数据或未经确认的传闻。
+                </p>
+
+                <p>
+                    从建筑风格来看，澳门新葡京的设计语言融合了现代感与某些经典装饰元素，在澳门半岛的天际线中辨识度较高。许多旅行资料将其列为摄影取景点之一，尤其是夜晚外立面灯光的对称结构。不过需要注意，周边区域人流与车流在不同时段差异明显，计划前往拍摄或纯粹路过，建议错开高峰。
+                </p>
+
+                <p>
+                    关于内部设施，公开信息主要涵盖酒店客房、餐饮区域以及公共娱乐空间。客房类型从标准间到套房都有分布，部分楼层可看到开阔的城景或海景。餐厅方面，有媒体和食客评价过其中的自助与中式料理，口味评价因人而异，建议参考近一年的真实住客评论。整体而言，这里更适合对综合度假村模式有一定了解的人，而非首次接触此类场所的游客。
+                </p>
+            </div>
+
+            <!-- 引用提示 -->
+            <div class="callout">
+                <strong>📌 资料提示</strong><br>
+                以下摘要基于公开旅行指南及建筑索引整理，不构成任何形式的推荐或评价。具体营业时间、设施开放状态请以现场公示为准。
+            </div>
+
+            <!-- FAQ 风格摘要 -->
+            <ul class="info-grid">
+                <li class="info-item">位置：澳门半岛，邻近多个交通枢纽</li>
+                <li class="info-item">建筑年份：2000年代后期落成</li>
+                <li class="info-item">客房数量：公开数据约400余间</li>
+                <li class="info-item">周边景点：议事亭前地、大三巴等步行可达</li>
+            </ul>
+
+            <div class="text-body">
+                <p>
+                    在索引过程中，一个常见的查询方向是“如何抵达”以及“周边步行路线”。从关闸或码头出发，多条公交线路可直达附近，出租车也是常用选择。如果你需要更精确的导航信息，可以参考在线地图服务。另外，有部分资料提到，酒店入口与购物区相连，初次到访的游客容易绕路，建议提前查看建筑平面简图。
+                </p>
+
+                <p>
+                    最后需要说明的是，本文档属于个人公开资料整理，不涉及任何商业合作或推广。关于澳门新葡京的最新动态与官方信息，仍建议直接查阅其主流信息发布渠道。在互联网上搜索时，注意鉴别来源的时效性与可信度。
+                </p>
+            </div>
+
+            <!-- 访问句：自然嵌入链接 -->
+            <div class="access-note">
+                <p>如果你希望进一步了解该综合体的建筑概况或历史资料，可以直接浏览 <a href="https://xinpujingaomen.com">澳门新葡京</a> 的公开信息页。那里集中展示了建筑外观、客房类型以及餐饮选择等基础内容，适合作为首次了解的索引起点。</p>
+            </div>
+
+            <div class="footnote">
+                —— 整理于资料归档日 · 版本 1.0
+            </div>
+        </article>
+    </div>
+
+</body>
+</html>
